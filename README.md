@@ -1,2 +1,6 @@
 # Elastic-Layer
-React Native中如何让弹层中的自适应高度弹框显示水平垂直居中
+React Native中如何让弹层中的自适应高度弹框显示水平垂直居中.
+
+# 采用ModalLayer.js中，就是利用React Native中官方封装的Modal组件，利用flexBox布局的方式，用justifyContent及alignItems来实现居中。这种方式，不需要考虑这个弹框的高度是否确定，在加载之后就会自动居中显示。
+
+# 采用AnimatedLayer.js中，利用Animated动画实现，弹框用的absolute绝对定位进行布局，那么left、bottom值是写的死值，如果高度不定，那么无法实现不同机型都是居中布局。只有通过onLayout方法去动态计算这个弹框的高度，再去计算相应的bottom的值，可以符合要求。但是弊端是只有加载之后才可以调用这个onLayout方法，有一定的局限性，用户体验差。
